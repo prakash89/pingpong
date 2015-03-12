@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/shedule' => 'welcome#shedule', :as => :shedule
   get '/today_match' => 'welcome#today_match', :as => :today_match
   get '/organizer' => 'welcome#organizer', :as => :organizer
+  get '/match_pdf' => 'welcome#match_pdf', :as => :match_pdf
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -30,4 +30,7 @@ class WelcomeController < ApplicationController
 
   def organizer
   end
+
+  def match_pdf
+  end
 end
