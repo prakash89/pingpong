@@ -987,3 +987,14 @@ and (max-width : 991px) {
     margin-bottom: 50px;
     margin-left: 700px;
 }
+.message-box {
+   opacity: 0.5;
+}
+
+.message-box-high {
+   color: black;
+   font-weight: bold;
+}
+.winner-name {
+    color: blue;
+}
