@@ -8,6 +8,10 @@
                     </div>
                 </div> -->
                 
+                <% if current_user.present? %>
+                <a href="<%= new_match_path %>">live update</a>
+                <% end %>
+                
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
@@ -15,64 +19,72 @@
                             <p>Don't Miss It</p>
                         </div>
                     </div>
+
+                    <% @matches.each do |match| %>
                     <div class="row">
                         
                         <div class="col-md-6">
                             <div class="testimonial">
-                                <img src="../assets/team/Anupama.jpg" class="img-responsive" alt="...">
+                               <%= image_tag match.image1_url(:thumb) %>
                                 <div class="speech">
-                                    <h2>Anupama</h2>
+                                    <h2><%= match.player_first%></h2>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="testimonial">
-                                <img src="../assets/team/Sharmila.jpg" class="img-responsive" alt="...">
+                                <%= image_tag match.image2_url(:thumb) %>
                                 <div class="speech">
-                                    <h2>Sharmila</h2>
+                                    <h2><%= match.player_second%></h2>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <% if current_user.present? %>
+                                <a href="<%= edit_match_path(match) %>">edit</a>
+                                <%= link_to "destroy", match_path(match), method: :delete, data: {confirm: 'Are u sure'} %>
+                        <% end %>
+
+                        <!-- <div class="col-md-6">
                             <div class="testimonial">
                                 <img src="../assets/team/Krishna.jpg" class="img-responsive" alt="...">
                                 <div class="speech">
                                     <h2>Krishna</h2>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="testimonial">
                                 <img src="../assets/team/Ventaka.jpg" class="img-responsive" alt="...">
                                 <div class="speech">
                                     <h2>Venkat</h2>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="testimonial">
                                 <img src="../assets/team/Aashish.jpg" class="img-responsive" alt="...">
                                 <div class="speech">
                                     <h2>Aashish</h2>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="testimonial">
                                 <img src="../assets/team/rsz_samart.jpg" class="img-responsive" alt="...">
                                 <div class="speech">
                                     <h2>Samarth</h2>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         
                         
                     </div><!--/.row -->
+                    <% end %>
                     
                 </div>
                 

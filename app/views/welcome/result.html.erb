@@ -6,7 +6,9 @@
                         <!-- </div> -->
                     <!-- </div> -->
                 <!-- </div> -->
-                
+                <% if current_user.present? %>
+                <a href="<%= new_contest_path %>">live update</a>
+                <% end %>
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
@@ -14,6 +16,8 @@
                             <p>Latest match winners</p>
                         </div>
                     </div>
+
+                    <% @contests.each do |contest| %>
                     <div class="row">
                         
                         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -21,14 +25,18 @@
                                 <div class="media">
                                     <i class="fa fa-magic pull-left"></i>
                                     <div class="media-body">
-                                        <h2 class="media-heading">Match-2</h2>
-                                        <h3><strong>Kedar</strong> beat Vikram</h3>
-                                        <h4>by 21-10, 21-13</h4>
+                                        <h2 class="media-heading"><%= contest.match_number%></h2>
+                                        <h3><strong><%= contest.player_first%></strong> beat <%= contest.player_second%></h3>
+                                        <h4><%= contest.match_point%></h4>
                                     </div>
                                 </div>
+                                 <% if current_user.present? %>
+                                <a href="<%= edit_contest_path(contest) %>">edit</a>
+                                <%= link_to "destroy", contest_path(contest), method: :delete, data: {confirm: 'Are u sure'} %>
+                                <% end %>
                             </div>
                         </div><!-- /.col-md-4 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        <!-- <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="feature-2">
                                 <div class="media">
                                     <i class="fa fa-css3 pull-left"></i>
@@ -39,8 +47,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- /.col-md-4 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        </div> --><!-- /.col-md-4 -->
+                       <!--  <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="feature-2">
                                 <div class="media">
                                     <i class="fa fa-wordpress pull-left"></i>
@@ -51,8 +59,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- /.col-md-4 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        </div> --><!-- /.col-md-4 -->
+                        <!-- <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="feature-2">
                                 <div class="media">
                                     <i class="fa fa-magic pull-left"></i>
@@ -63,8 +71,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- /.col-md-4 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        </div> -->
+                        <!-- <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="feature-2">
                                 <div class="media">
                                     <i class="fa fa-css3 pull-left"></i>
@@ -75,8 +83,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- /.col-md-4 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        </div> --><!-- /.col-md-4 -->
+                        <!-- <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="feature-2">
                                 <div class="media">
                                     <i class="fa fa-wordpress pull-left"></i>
@@ -87,9 +95,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        <!-- <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="feature-2">
                                 <div class="media">
                                     <i class="fa fa-wordpress pull-left"></i>
@@ -100,9 +108,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         
                     </div><!-- /.row -->
+                    <% end %>
                 </div>
                 
                 <!-- <div class="pricing-section">

@@ -20,12 +20,14 @@ class WelcomeController < ApplicationController
   end
 
   def result
+    @contests = Contest.all.reverse
   end
 
   def shedule
   end
 
   def today_match
+    @matches = Match.all
   end
 
   def organizer

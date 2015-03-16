@@ -1,0 +1,25 @@
+<%= form_for :match,:url=>match_path,method: "put" do |f| %>
+  <p>
+    <%= f.label :player_first %><br>
+    <%= f.text_field :player_first %>
+  </p>
+ 
+  <p>
+    <%= f.label :image1 %><br>
+    <%= f.file_field :image1 %>
+  </p>
+
+  <p>
+    <%= f.label :player_second %><br>
+    <%= f.text_field :player_second %>
+  </p>
+
+  <p>
+    <%= f.label :image2 %><br>
+    <%= f.file_field :image2 %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

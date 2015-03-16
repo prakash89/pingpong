@@ -1,0 +1,25 @@
+<%= form_for :contest,:url=>contests_path,method: "post" do |f| %>
+  <p>
+    <%= f.label :match_number %><br>
+    <%= f.text_field :match_number %>
+  </p>
+ 
+  <p>
+    <%= f.label :player_first %><br>
+    <%= f.text_field :player_first %>
+  </p>
+
+  <p>
+    <%= f.label :player_second %><br>
+    <%= f.text_field :player_second %>
+  </p>
+
+  <p>
+    <%= f.label :match_point %><br>
+    <%= f.text_field :match_point %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

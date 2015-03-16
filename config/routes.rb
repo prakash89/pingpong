@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   # get 'welcome/index'
   root :to => 'welcome#index'
   get '/contact' => 'welcome#contact', :as => :contact
@@ -9,6 +11,12 @@ Rails.application.routes.draw do
   get '/today_match' => 'welcome#today_match', :as => :today_match
   get '/organizer' => 'welcome#organizer', :as => :organizer
   get '/match_pdf' => 'welcome#match_pdf', :as => :match_pdf
+  get "log_out" => "sessions#destroy", :as => "log_out"
+
+  resources :users
+  resources :sessions
+  resources :contests
+  resources :matches
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
