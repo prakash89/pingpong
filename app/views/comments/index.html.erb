@@ -1,0 +1,48 @@
+<div class="section-modal contact">
+	<div class="modal-content">
+		<div class="container">
+		<h2 class="match-heading">Comments Box</h2>
+
+		<!-- <div class="col-md-6">
+			<div class="testimonial">
+			<%=  %>
+				<div class="speech">
+					<h2><%= %></h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="testimonial">
+			<%=  %>
+				<div class="speech">
+					<h2><%= %></h2>
+				</div>
+			</div>
+		</div> -->
+<%= form_tag(comments_path, :method => "post") do %>
+	<div class="padding-btwn-fileds">
+		<h3>add a comment</h3>
+	</div>
+	<div>
+		<textarea rows="6" cols="80" class="textarea comment_box" placeholder="comment here" id="comment" name="comment[comment_name]">
+		</textarea>
+		<%#= text_area_tag :comment_name%>
+		<div class="padding-comment-btn">
+			<%= submit_tag "Add Comment", class: "button" %>
+		</div>
+	</div>
+	<% end %>
+	<div class="padding-slider">
+	<% @comments.each do |comment| %>
+	<div class = "comment-font-design"><%= comment.comment_name %></div>
+	<% if current_user.present? %>
+	<%= link_to "destroy", comment_path(comment), method: :delete, data: {confirm: 'Are u sure'} %>
+	<% end %>
+	<div class="comment-devider"></div>
+	<% end %>
+	</div>
+
+		</div>
+	</div>
+</div>
