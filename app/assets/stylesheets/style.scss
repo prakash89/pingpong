@@ -978,6 +978,12 @@ and (max-width : 991px) {
     margin-left: 470px;
 
 }
+
+.qwinix-logo {
+    margin-top: 140px;
+    margin-left: 370px;
+}
+
 .journal-entry-devider {
     border-bottom: 2px solid #333; margin: 20px -20px;
 }
@@ -1027,4 +1033,8 @@ and (max-width : 991px) {
     width: 60%;
     font-size: 16px;
     background-color: #F3E2A9;
+} 
+
+.text-color-error {
+    color: #fff;
 }

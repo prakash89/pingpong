@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/match_pdf' => 'welcome#match_pdf', :as => :match_pdf
   get "log_out" => "sessions#destroy", :as => "log_out"
 
-  resources :users
+  resources :users, :only => [:create]
   resources :sessions
   resources :contests
   resources :matches
