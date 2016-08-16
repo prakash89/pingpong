@@ -1,12 +1,19 @@
-development: &default
+development:
   adapter: postgresql
   encoding: unicode
-  database: postgres
+  database: pingpong_dev
   pool: 5
   username: postgres
-  password:
-  host: db
+  password: password
+  host: localhost
+  port: 5432
 
 test:
-  <<: *default
-  database: myapp_test
+  adapter: postgresql
+  encoding: unicode
+  database: pingpong_test
+  pool: 5
+  username: postgres
+  password: password
+  host: localhost
+  port: 5432
